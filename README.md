@@ -13,7 +13,7 @@ Ensure the following are installed on your system:
 - pip
 - Uvicorn
 - A modern web browser
-- (Optional) VS Code Live Server extension
+- VS Code Live Server extension
 
 ---
 
@@ -26,40 +26,37 @@ git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
 cd YOUR_REPOSITORY
 Install Required Dependencies
 Install all required Python packages from requirements.txt.
+```
 
-Windows
+## Windows
+```bash
 pip install -r requirements.txt
 macOS / Linux
 python3 -m pip install -r requirements.txt
 After running the command, all required packages will be installed.
+```
+--- 
 
-Hugging Face Token Setup
-This project requires a Hugging Face access token.
+## Hugging Face Token Setup
 
-Locate the Hugging Face token section in the code and add your token:
-
+### This project requires a Hugging Face access token.
+### Locate the Hugging Face token section in the code and add your token:
+```bash
 hf_token = "YOUR_HUGGING_FACE_TOKEN"
 Do not commit your token to a public repository.
+```
+---
 
-Running the Application
+## Running the Application
 Start the Backend Server
 Open a terminal in the project directory and run:
-
+```bash
 uvicorn app:app --reload --host 127.0.0.1 --port 8000
 The backend server will start at:
+```
 
+## Run the Frontend
+```bash
 http://127.0.0.1:8000
-Run the Frontend (Live Server)
-For a better UI experience:
+```
 
-Open the index.html file
-
-Run it using a Live Server
-
-Example (VS Code): Right-click → Open with Live Server
-
-Open the generated local URL in your browser
-
-├── static/
-├── templates/
-└── README.md
