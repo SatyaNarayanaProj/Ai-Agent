@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Announcement Generator</title>
+</head>
+<body>
+    <h2>Enter Title:</h2>
+    <input type="text" id="title" placeholder="Type your title here">
+    <button id="generate">Generate Description</button>
+    <h3>Description:</h3>
+    <p id="desc"></p>
+
+    <script>
+        document.getElementById("generate").onclick = async () => {
+            const title = document.getElementById("title").value;
+            const response = await fetch("http://127.0.0.1:8000/generate", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({title})
+            });
+            const data = await response.json();
+            document.getElementById("desc").innerText = data.description || data.error;
+        };
+    </script>
+</body>
+</html>
