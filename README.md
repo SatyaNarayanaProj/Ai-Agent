@@ -1,34 +1,65 @@
-1️. Install Required Dependencies
+# Project Documentation
 
-To install all required Python packages listed in requirements.txt, run the following command:
+This repository contains the source code for the project.  
+Follow the instructions below to set up and run the application locally.
+
+---
+
+## Prerequisites
+
+Ensure the following are installed on your system:
+
+- Python 3.8 or higher
+- pip
+- Uvicorn
+- A modern web browser
+- (Optional) VS Code Live Server extension
+
+---
+
+## Installation
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+cd YOUR_REPOSITORY
+Install Required Dependencies
+Install all required Python packages from requirements.txt.
 
 Windows
 pip install -r requirements.txt
-
 macOS / Linux
 python3 -m pip install -r requirements.txt
+After running the command, all required packages will be installed.
 
+Hugging Face Token Setup
+This project requires a Hugging Face access token.
 
-This will automatically install all necessary dependencies.
-
-2️. Set Your Hugging Face Token
-
-In the Hugging Face token section of the code, replace the placeholder with your own token:
+Locate the Hugging Face token section in the code and add your token:
 
 hf_token = "YOUR_HUGGING_FACE_TOKEN"
+Do not commit your token to a public repository.
 
-
-⚠️ Important:
-Do not share or commit your token to public repositories.
-
-3️. Run the Backend Server
-
-Open your terminal in the project directory and start the server using:
+Running the Application
+Start the Backend Server
+Open a terminal in the project directory and run:
 
 uvicorn app:app --reload --host 127.0.0.1 --port 8000
+The backend server will start at:
 
+http://127.0.0.1:8000
+Run the Frontend (Live Server)
+For a better UI experience:
 
-The backend will start at:
-👉 http://127.0.0.1:8000
+Open the index.html file
 
---reload enables auto-reload during development
+Run it using a Live Server
+
+Example (VS Code): Right-click → Open with Live Server
+
+Open the generated local URL in your browser
+
+├── static/
+├── templates/
+└── README.md
