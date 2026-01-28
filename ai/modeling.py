@@ -3,9 +3,9 @@ import requests
 import re
 import os
 
-# ---------------- CONFIG ---------------- #
 
-OPENROUTER_API_KEY = "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"
+
+OPENROUTER_API_KEY = "your-token-here"
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 
@@ -21,7 +21,7 @@ HEADERS = {
 complete_cache = {}
 suggest_cache = {}
 
-# ---------------- CORE CALL ---------------- #
+
 
 def openrouter_call(prompt, max_tokens, temperature):
     payload = {
@@ -44,13 +44,13 @@ def openrouter_call(prompt, max_tokens, temperature):
     r.raise_for_status()
     return r.json()["choices"][0]["message"]["content"].strip()
 
-# ---------------- CLEAN ---------------- #
+
 
 def clean_line(text):
     text = re.sub(r"^[\s\d\.\-\)\•]+", "", text)
     return text.replace("*", "").strip()
 
-# ---------------- AUTOCOMPLETE ---------------- #
+
 
 def generate_completion(text):
     key = text[-120:]
@@ -78,7 +78,7 @@ Title so far: {text}
     complete_cache[key] = result
     return result
 
-# ---------------- SUGGESTIONS ---------------- #
+
 
 def generate_suggestions(text):
     key = text[-25:]
@@ -121,7 +121,7 @@ Partial title: {text}
     return results
 
 
-# ---------------- GENERATION ---------------- #
+
 
 def generate_description(title):
     prompt = f"""
@@ -145,5 +145,6 @@ Title: {title}
 """
 
     return openrouter_call(prompt, 220, 0.3)
+
 
 
